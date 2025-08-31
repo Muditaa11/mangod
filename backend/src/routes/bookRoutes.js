@@ -13,12 +13,20 @@ router.post("/", protectRoute, async (req, res) => {
             return res.status(400).json({ error: "Title, caption, Image and rating are required" });
         }
 
+        const imageData = `data:image/jpeg;base64,${image}`;
+
         //upload image to cloudinary 
-        const uploadResponse = await cloudinary.uploader.upload(image);
+        const uploadResponse = await cloudinary.uploader.upload(imageData);
         const imageUrl = uploadResponse.secure_url;
 
         //save the url to mongodb
-       const newBook = new Book({ title, caption, user: req.user._id});
+        const newBook = new Book({
+            title,
+            caption,
+            rating,
+            image: imageUrl,
+            user: req.user._id,
+        });
         await newBook.save();
 
         res.status(201).json(newBook);
