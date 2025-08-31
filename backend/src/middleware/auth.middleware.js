@@ -25,6 +25,11 @@ export const protectRoute = async (req, res, next) => {
         return res.status(401).json({ error: 'Token is missing' });
     }
 
+    // Debug token format
+    console.log('Token received:', token.substring(0, 20) + '...');
+    console.log('Token length:', token.length);
+    console.log('JWT_SECRET exists:', !!process.env.JWT_SECRET);
+
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 

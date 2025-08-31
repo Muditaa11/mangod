@@ -71,6 +71,9 @@ export const useAuthStore = create((set) => ({
             if (!response.ok) throw new Error(data.message || 'Login failed');
             // Optionally, update the store with user/token here
             
+            console.log('Login successful, token received:', data.token ? 'Token exists' : 'No token');
+            console.log('Token length:', data.token?.length);
+            
             await AsyncStorage.setItem('token', data.token);
             await AsyncStorage.setItem('user', JSON.stringify(data.user));
 
@@ -86,6 +89,9 @@ export const useAuthStore = create((set) => ({
     checkAuth: async () => {
         try {
             const token = await AsyncStorage.getItem('token');
+            console.log('CheckAuth - Token retrieved:', token ? 'Token exists' : 'No token');
+            console.log('CheckAuth - Token length:', token?.length);
+            
             const userJson = await AsyncStorage.getItem('user');
             let user = null;
             

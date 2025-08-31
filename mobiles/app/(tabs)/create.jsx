@@ -76,6 +76,10 @@ export default function Create() {
 
             const imageDataUrl = `data:${imageType};base64,${imageBase64}`;
 
+            console.log('Create book - Token exists:', token ? 'Yes' : 'No');
+            console.log('Create book - Token length:', token?.length);
+            console.log('Create book - Using endpoint:', API_ENDPOINTS.BOOKS);
+
             const response = await fetch(API_ENDPOINTS.BOOKS, {
                 method: "POST",
                 headers: {
