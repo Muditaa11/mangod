@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://backapp-xdop.onrender.com/api';
+const API_BASE_URL = 'https://mangod.onrender.com/api';
 
 export const API_ENDPOINTS = {
   // Auth endpoints

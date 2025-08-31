@@ -91,10 +91,12 @@ export default function Create() {
             })
 
             let data;
-            try {
+            const contentType = response.headers.get('content-type');
+            
+            if (contentType && contentType.includes('application/json')) {
                 data = await response.json();
-            } catch (jsonError) {
-                // If response is not JSON, get text content
+            } else {
+                // Response is not JSON, treat as text
                 const textResponse = await response.text();
                 throw new Error(textResponse || "Something went wrong");
             }
