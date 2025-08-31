@@ -8,8 +8,8 @@ const router = express.Router();
 router.post("/", protectRoute, async (req, res) => {
     
     try {
-        const { title, caption } = req.body;
-        if (!title || !caption) {
+        const { title, caption, image, rating } = req.body;
+        if (!title || !caption || !image || !rating) {
             return res.status(400).json({ error: "Title, caption, Image and rating are required" });
         }
 
