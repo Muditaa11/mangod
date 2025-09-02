@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { View, Text, Alert, FlatList, TouchableOpacity, ActivityIndicator, RefreshControl } from 'react-native'
 import { useRouter } from 'expo-router';
 import { useAuthStore } from '../../store/authStore';
-import styles from '../../assets/styles/login.styles';
+import styles from '../../assets/styles/profile.styles';
 import COLORS from '../../constants/colors';
 import {sleep} from ".";
 import Loader from '../../components/Loader';

@@ -32,7 +32,7 @@ router.post('/register', async(req, res) => {
       return res.status(400).json({ message: 'Username already exists' }); 
     } 
 
-    const profileImage = `https://ui-avatars.com/api/?name=${username}&background=random`;
+    const profileImage = `https://api.dicebear.com/9.x/avataaars/svg?seed=${encodeURIComponent(username)}`;
 
     const user = new User({ email, username, password, profileImage});
     //hash password
