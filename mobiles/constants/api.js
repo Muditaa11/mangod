@@ -7,7 +7,8 @@ export const API_ENDPOINTS = {
   
   // Book endpoints
   BOOKS: `${API_BASE_URL}/books`,
-  USER_BOOKS: `${API_BASE_URL}/book/user`,
+  USER_BOOKS: `${API_BASE_URL}/books/user`,
+
   
   // Helper function to get book by ID
   BOOK_BY_ID: (id) => `${API_BASE_URL}/books/${id}`,

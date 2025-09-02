@@ -131,13 +131,13 @@ export default function Create() {
                     <Ionicons 
                         name={ i <= rating ? "star" : "star-outline"}
                         size={32}
-                        color={i <= rating ? "#fb4b00" : COLORS.textSecondary}
+                        color={i <= rating ? "#d7e415ff" : COLORS.textSecondary}
                     />
                 </TouchableOpacity>
             );
         }
 
-    return stars;
+    return <View style={styles.ratingContainer}>{stars}</View>;
     }
 
   return (

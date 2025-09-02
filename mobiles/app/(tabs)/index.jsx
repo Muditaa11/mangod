@@ -91,7 +91,7 @@ export default function Home() {
         <Image source={{ uri: item.image }} style={styles.bookImage} contentFit="cover" />
       </View>
 
-      <View style={styles.bookdetails}>
+      <View style={styles.bookDetails}>
         <Text style={styles.bookTitle}>{item.title}</Text>
         <View style={styles.ratingContainer}>{renderRatingStars(item.rating)}</View>
         <Text style={styles.caption}>{item.caption}</Text>
@@ -122,7 +122,7 @@ export default function Home() {
         onEndReachedThreshold={0.1}
         ListHeaderComponent={
           <View style={styles.header}>
-            <Text style={styles.headerTitle}>BookWorm</Text>
+            <Text style={styles.headerTitle}>Bookish</Text>
             <Text style={styles.headerSubtitle}>Discover great reads from the community</Text>
           </View>
         }
