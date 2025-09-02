@@ -62,12 +62,11 @@ router.get("/", protectRoute, async (req, res) => {
 router.get("/user", protectRoute, async (req, res) => {
     try {
         const books = await Book.find({ user: req.user._id })
-        .sort({ createdAt: -1 })
-        .populate('user', 'username profileImage');
+        .sort({ createdAt: -1 });
         res.json(books);
     } catch (error) {
-        console.error("Error in GET /books/recommended:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        console.error("Error in GET /books/recommended:", error.message);
+        res.status(500).json({ message: "Server Error" });
     }
 });
 
